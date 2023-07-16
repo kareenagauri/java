@@ -1,0 +1,155 @@
+MainActivity.xml
+
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+xmlns:android="http://schemas.android.com/apk/res/android"
+xmlns:app="http://schemas.android.com/apk/res-auto"
+xmlns:tools="http://schemas.android.com/tools"
+android:layout_width="match_parent"
+android:layout_height="match_parent"
+tools:context=".MainActivity">
+<TextView
+android:id="@+id/textView"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentEnd="true"
+android:layout_alignParentBottom="true"
+android:layout_marginEnd="99dp"
+android:layout_marginBottom="601dp"
+android:text="Simple Calculator"
+android:textSize="36sp"
+tools:layout_editor_absoluteX="49dp"
+tools:layout_editor_absoluteY="96dp" />
+<EditText
+android:id="@+id/editText1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentEnd="true"
+android:layout_alignParentBottom="true"
+android:layout_marginEnd="94dp"
+android:layout_marginBottom="477dp"
+android:ems="10"
+android:inputType="textPersonName"
+android:text=""
+android:hint="enter first no"
+tools:layout_editor_absoluteX="99dp"
+tools:layout_editor_absoluteY="165dp" />
+<EditText
+android:id="@+id/editText2"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentEnd="true"
+android:layout_alignParentBottom="true"
+android:layout_marginEnd="104dp"
+android:layout_marginBottom="395dp"
+android:ems="10"
+android:inputType="textPersonName"
+android:text=""
+android:hint="enter second no"
+tools:layout_editor_absoluteX="90dp"
+tools:layout_editor_absoluteY="268dp" />
+<TextView
+android:id="@+id/textView1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentEnd="true"
+android:layout_alignParentBottom="true"
+android:layout_marginEnd="216dp"
+android:layout_marginBottom="317dp"
+android:text="0"
+android:textSize="36sp"
+tools:layout_editor_absoluteX="168dp"
+tools:layout_editor_absoluteY="376dp" />
+<Button
+android:id="@+id/button1"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentEnd="true"
+android:layout_alignParentBottom="true"
+android:layout_marginEnd="258dp"
+android:layout_marginBottom="272dp"
+android:text="Add"
+android:onClick="add"
+tools:layout_editor_absoluteX="45dp"
+tools:layout_editor_absoluteY="467dp" />
+<Button
+android:id="@+id/button2"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentEnd="true"
+android:layout_alignParentBottom="true"
+android:layout_marginEnd="72dp"
+android:layout_marginBottom="267dp"
+android:text="Subtract"
+android:onClick="sub"
+tools:layout_editor_absoluteX="260dp"
+tools:layout_editor_absoluteY="462dp" />
+<Button
+android:id="@+id/button3"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentEnd="true"
+android:layout_alignParentBottom="true"
+android:layout_marginEnd="254dp"
+android:layout_marginBottom="157dp"
+android:text="Mul"
+android:onClick="mul"
+tools:layout_editor_absoluteX="49dp"
+tools:layout_editor_absoluteY="574dp" />
+<Button
+android:id="@+id/button4"
+android:layout_width="wrap_content"
+android:layout_height="wrap_content"
+android:layout_alignParentEnd="true"
+android:layout_alignParentBottom="true"
+android:layout_marginEnd="95dp"
+android:layout_marginBottom="155dp"
+android:text="Div"
+android:onClick="div"
+tools:layout_editor_absoluteX="258dp"
+tools:layout_editor_absoluteY="572dp" />
+
+MainActivity.java
+
+package com.example.myapp2;
+import androidx.appcompat.app.AppCompatActivity;
+import android.os.Bundle;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.TextView;
+public class MainActivity extends AppCompatActivity {
+EditText e1, e2;
+TextView tv1;
+@Override
+protected void onCreate(Bundle savedInstanceState) {
+super.onCreate(savedInstanceState);
+setContentView(R.layout.activity_main);
+e1 = findViewById(R.id.editText1);
+e2 = findViewById(R.id.editText2);
+tv1 = findViewById(R.id.textView1);
+}
+public void add(View view) {
+int a1 = Integer.parseInt(e1.getText().toString());
+int a2 = Integer.parseInt(e2.getText().toString());
+int result = a1 + a2;
+tv1.setText("" + result);
+}
+public void sub(View view) {
+int a1 = Integer.parseInt(e1.getText().toString());
+int a2 = Integer.parseInt(e2.getText().toString());
+int result = a1 - a2;
+tv1.setText("" + result);
+}
+public void mul(View view) {
+int a1 = Integer.parseInt(e1.getText().toString());
+int a2 = Integer.parseInt(e2.getText().toString());
+int result = a1 * a2;
+tv1.setText("" + result);
+}
+public void div(View view) {
+int a1 = Integer.parseInt(e1.getText().toString());
+int a2 = Integer.parseInt(e2.getText().toString());
+int result = a1 / a2;
+tv1.setText("" + result);
+}
+}
